@@ -49,11 +49,11 @@
 
         layer0 {
             bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4         &kp N5              &mmv MOVE_UP     &kp N6       &kp N7     &kp N8          &kp N9          &kp N0           &kp BACKSPACE
-&lt 1 TAB   &kp Q      &kp W         &kp E         &kp R          &kp T               &mmv MOVE_DOWN   &kp Y        &kp U      &kp I           &kp O           &kp P            &kp MINUS
-&kp CAPS    &kp A      &kp S         &kp D         &kp F          &kp G               &mmv MOVE_LEFT   &kp H        &kp J      &kp K           &kp L           &kp SEMI         &kp APOS
-&kp LSHFT   &kp Z      &kp X         &kp C         &kp V          &kp B               &mmv MOVE_RIGHT  &kp N        &kp M      &kp COMMA       &kp DOT         &kp FSLH         &kp RIGHT_SHIFT
-&kp C_MUTE  &kp GRAVE  &kp LEFT_GUI  &kp LEFT_ALT  &kp BACKSPACE  &kp LEFT_CONTROL    &trans           &lt 1 ENTER  &kp SPACE  &kp LANGUAGE_1  &kp LEFT_ARROW  &kp RIGHT_ARROW
+&kp ESC           &kp N1     &kp N2        &kp N3        &kp N4         &kp N5       &mmv MOVE_UP     &kp N6       &kp N7                 &kp N8          &kp N9                  &kp N0                   &kp DEL
+&lt 2 LS(TAB)     &kp Q      &kp W         &kp E         &kp R          &kp T        &mmv MOVE_DOWN   &kp Y        &kp U                  &kp I           &kp O                   &kp P                    &kp MINUS
+&kp LEFT_CONTROL  &kp A      &kp S         &kp D         &kp F          &kp G        &mmv MOVE_LEFT   &kp H        &kp J                  &kp K           &kp L                   &kp SEMI                 &kp APOS
+&sk LSHFT         &kp Z      &kp X         &kp C         &kp V          &kp B        &mmv MOVE_RIGHT  &kp N        &kp M                  &kp COMMA       &kp DOT                 &kp FSLH                 &kp RIGHT_SHIFT
+&kp C_MUTE        &kp TILDE  &kp LEFT_GUI  &kp LEFT_ALT  &kp BACKSPACE  &lt 1 TAB    &trans           &lt 1 ENTER  &mt RIGHT_SHIFT SPACE  &kp LANGUAGE_1  &kp LC(LS(LEFT_ARROW))  &kp LC(LS(RIGHT_ARROW))
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -62,15 +62,25 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &mmv MOVE_UP     &kp F6     &kp F7     &kp F8    &kp F9     &kp F10           &soft_off
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_DOWN   &kp PG_UP  &kp END    &kp UP    &kp HOME   &kp MINUS         &kp EQUAL
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT   &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK  &trans    &trans     &kp F11           &kp F12
-&kp C_MUTE  &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans     &trans     &trans    &trans     &trans
+&kp GRAVE   &kp F1     &kp F2     &kp F3     &kp F4     &kp F5           &mmv MOVE_UP     &kp F6     &kp F7     &kp F8    &kp F9     &kp F10           &soft_off
+&trans      &trans     &trans     &trans     &trans     &kp LG(LS(S))    &mmv MOVE_DOWN   &kp PG_UP  &kp END    &kp UP    &kp HOME   &kp MINUS         &kp EQUAL
+&trans      &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans           &mmv MOVE_LEFT   &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans      &trans     &trans     &trans     &trans     &trans           &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK  &trans    &trans     &kp F11           &kp F12
+&kp C_MUTE  &trans     &trans     &trans     &trans     &trans           &mkp LCLK        &trans     &trans     &trans    &trans     &trans
             >;
 
             display-name = "layer1";
-            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        layer_2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &trans  &trans   &trans  &kp KP_DIVIDE    &trans
+&trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N7  &kp N8   &kp N9  &kp KP_MULTIPLY  &trans
+&trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N4  &kp N5   &kp N6  &kp MINUS        &trans
+&trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N1  &kp N2   &kp N3  &kp PLUS         &trans
+&trans  &trans  &trans  &trans  &kp BACKSPACE  &trans    &trans  &kp EQUAL  &kp N0  &kp DOT  &trans  &trans
+            >;
         };
     };
 };
