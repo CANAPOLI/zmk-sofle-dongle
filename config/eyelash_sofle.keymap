@@ -57,20 +57,41 @@
 
         #binding-cells = <2>;
         flavor = "tap-preferred";
-        tapping-term-ms = <220>;
+        tapping-term-ms = <210>;
         quick-tap-ms = <175>;
     };
 
-    L1_rotate: L1_rotate {
-        compatible = "zmk,behavior-sensor-rotate-var";
-        label = "L1_ROTATE";
-        #sensor-binding-cells = <2>;
-        bindings = <&msc>, <&msc>;
-
-        tap-ms = <30>;
+    behaviors {
     };
 
-    behaviors {
+    macros {
+        one_shot_shift: one_shot_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&sk_shift LEFT_SHIFT>;
+            label = "ONE_SHOT_SHIFT";
+        };
+
+        pw: pw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Z &kp V &kp K &kp A &kp N &kp N3 &kp N1 &kp N5>;
+            label = "PW";
+        };
+
+        email: email {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp J &kp B &kp I &kp N &kp DOT &kp K &kp A &kp N &kp G &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "EMAIL";
+        };
+
+        phone: phone {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N1 &kp N0 &kp N2 &kp N8 &kp N6 &kp N9 &kp N1 &kp N4 &kp N6 &kp N6>;
+            label = "PHONE";
+        };
     };
 
     keymap {
@@ -81,7 +102,7 @@
 &gresc            &kp N1     &kp N2        &kp N3        &kp N4         &kp N5       &mmv MOVE_UP     &kp N6         &kp N7                       &kp N8          &kp N9                  &kp N0                   &kp DEL
 &lt 2 LS(TAB)     &kp Q      &kp W         &kp E         &kp R          &kp T        &mmv MOVE_DOWN   &kp Y          &kp U                        &kp I           &kp O                   &kp P                    &kp MINUS
 &kp LEFT_CONTROL  &kp A      &kp S         &kp D         &kp F          &kp G        &mmv MOVE_LEFT   &kp H          &kp J                        &kp K           &kp L                   &kp SEMI                 &kp APOS
-&sk_shift LSHFT   &kp Z      &kp X         &kp C         &kp V          &kp B        &mmv MOVE_RIGHT  &ht_space B N  &kp M                        &kp COMMA       &kp DOT                 &kp FSLH                 &kp RIGHT_SHIFT
+&one_shot_shift   &kp Z      &kp X         &kp C         &kp V          &kp B        &mmv MOVE_RIGHT  &ht_space B N  &kp M                        &kp COMMA       &kp DOT                 &kp FSLH                 &kp RIGHT_SHIFT
 &kp C_MUTE        &kp TILDE  &kp LEFT_GUI  &kp LEFT_ALT  &kp BACKSPACE  &lt 1 TAB    &trans           &lt 1 ENTER    &ht_space RIGHT_SHIFT SPACE  &kp LANGUAGE_1  &kp LC(LS(LEFT_ARROW))  &kp LC(LS(RIGHT_ARROW))
             >;
 
@@ -99,17 +120,19 @@
             >;
 
             display-name = "layer1";
-            sensor-bindings = <&L1_rotate SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         layer_2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &trans  &trans   &trans  &kp KP_DIVIDE    &trans
-&trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N7  &kp N8   &kp N9  &kp KP_MULTIPLY  &trans
+&trans  &trans  &trans  &phone  &email         &pw       &trans  &trans     &kp N7  &kp N8   &kp N9  &kp KP_MULTIPLY  &trans
 &trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N4  &kp N5   &kp N6  &kp MINUS        &trans
 &trans  &trans  &trans  &trans  &trans         &trans    &trans  &trans     &kp N1  &kp N2   &kp N3  &kp PLUS         &trans
 &trans  &trans  &trans  &trans  &kp BACKSPACE  &trans    &trans  &kp EQUAL  &kp N0  &kp DOT  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
     };
 };
