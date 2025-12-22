@@ -195,3 +195,6 @@ layers:
   - {t: ., s: '>'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+combos:
+- p: [53, 63]
+  k: $$mdi:power-standby$$
