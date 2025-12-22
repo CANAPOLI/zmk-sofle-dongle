@@ -94,6 +94,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        power {
+            bindings = <&kp C_POWER>;
+            key-positions = <53 63>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
