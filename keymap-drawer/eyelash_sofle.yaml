@@ -47,7 +47,7 @@ layers:
   - V
   - B
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - N
+  - {t: N, h: B}
   - M
   - {t: ',', s: <}
   - {t: ., s: '>'}
