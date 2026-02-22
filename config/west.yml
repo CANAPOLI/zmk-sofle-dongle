@@ -9,9 +9,6 @@ manifest:
     - name: englmaxi
       url-base: https://github.com/englmaxi
   projects:
-    - name: mario-peripheral-animation
-      remote: gpeye
-      revision: main 
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
